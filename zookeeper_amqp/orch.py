@@ -215,23 +215,6 @@ read_queue_inst = readMessage()
 write_queue_inst = writeMessage()
 
 	
-'''
-if __name__ == '__main__':
-	createMaster()
-	createSlave()
-	createSlave()
-	
-	app.debug=True
-	app.run('0.0.0.0',use_reloader=False)
-'''
-#ii=1
-'''
-create_new_worker()
-time.sleep(2)
-create_new_worker()
-time.sleep(2)
-create_new_worker()
-'''
 
 #scaling
 
@@ -335,32 +318,7 @@ def crash_slave_inp():
 	result = crash_slave()
 	return result,200
 
-'''
-@app.route('/api/v1/_count',methods=["GET"])
-def get_count_requests():
-	l=[]
-	l.append(number_of_read_requests.value)
-	return jsonify(l), 200
 
-
-@app.route('/api/v1/_count',methods=["DELETE"])
-def delete_count_requests():
-	global number_of_read_requests
-	with number_of_read_requests.get_lock():
-		number_of_read_requests.value = 0
-	return {},200
-'''	
-
-'''
-while 1:
-	#	global worker_id
-	#print(i)
-	#print("WORKER ID",worker_id)
-	if((worker_id >= 2) and (i%500==0)):
-		#read_req()
-		#crash_slave();
-	i+=1
-'''
 if __name__ == '__main__':
 	create_new_worker()
 	time.sleep(3)
