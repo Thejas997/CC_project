@@ -1,0 +1,7 @@
+FROM python:3.6
+ADD . /CC_1131_6121_1634
+WORKDIR /CC_1131_6121_1634
+RUN pip install flask gunicorn requests 
+ENV TEAM_NAME=CC_1131_1621_1634
+EXPOSE 80
+

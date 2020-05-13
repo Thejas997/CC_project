@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+       
+    image: users:latest
+    command: python CC_1131_1621_1634_users.py
+    restart: always
+    depends_on:
+      - sqlite3
+    ports:
+      - "80:80"
+    environment:
+      - TEAM_NAME=CC_1131_1621_1634
+  sqlite3:
+      image: nouchka/sqlite3:latest
+      stdin_open: true
+      tty: true
+      volumes:
+       - ./db:/db:rw
+     
