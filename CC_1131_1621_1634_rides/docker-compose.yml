@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: rides:latest
+    command: python CC_1131_1621_1634_rides.py
+    restart: always
+    depends_on:
+      - sqlite3
+    ports:
+      - "80:80"
+    environment:
+      - TEAM_NAME=CC_1131_1621_1634
+  sqlite3:
+      image: nouchka/sqlite3:latest
+      stdin_open: true
+      tty: true
+      volumes:
+       - ./db:/db:rw
+     
